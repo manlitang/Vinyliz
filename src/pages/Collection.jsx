@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './Collection.css';
 import Navbar from "../components/Navbar.jsx"
 
-//GET MY COLLECTION FROM DISCOGS
+//GET MY COLLECTION FROM DISCOGS --> TEST
 export default class Collection extends Component {
   constructor(props) {
     super(props);
