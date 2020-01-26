@@ -1,9 +1,46 @@
 import React, { Component } from 'react'
-import DefaultLayout from "../layout/Default";
-import Form from "../layout/Form";
+//import DefaultLayout from "../layout/Default";
+//import Form from "../layout/Form";
 import {signup} from "../utils/auth";
 
 export default class Signup extends Component {
+
+    constructor (props) {
+        super(props)
+        this.state = {
+            user: {
+                    username: "",
+                    email: "",
+                    password: ""
+                },
+
+            error: null
+
+        }
+    }
+
+    handleInputChange (e) {
+        let userCopy = {...this.state.user};
+        userCopy[e.target.name] = e.target.value;
+        this.setState({
+            user: userCopy 
+        });
+    }
+
+    handleSignupClick(){
+        signup(this.state.user)
+        .then((response)=> {
+            this.setState({
+                error: null
+            }, ()=> {
+                this.props.history.push("/user/profile")
+            })
+        })
+        .catch((error)=> {
+            this.setState({error: error.response && error.response.data})
+        })
+    }
+
     render() {
         debugger
         return (
@@ -18,6 +55,8 @@ export default class Signup extends Component {
                     <div className="">
                         <input 
                             className="" 
+                            onChange={this.handleInputChange}
+                            value={this.state.username} 
                             name="username" 
                             type="text" 
                             placeholder="username"
@@ -29,7 +68,9 @@ export default class Signup extends Component {
                     <label className="">Email</label>
                     <div className="">
                         <input 
-                            className="" 
+                            className=""
+                            onChange={this.handleInputChange}
+                            value={this.state.email}  
                             name="email" 
                             type="text" 
                             placeholder="email"
@@ -42,6 +83,8 @@ export default class Signup extends Component {
                     <div className="">
                         <input 
                             className="" 
+                            onChange={this.handleInputChange}
+                            value={this.state.password} 
                             name="password" 
                             type="password" 
                             placeholder="password"

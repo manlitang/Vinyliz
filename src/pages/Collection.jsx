@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Collection.css";
+import './Collection.css';
+import Navbar from "../components/Navbar.jsx"
 
-//GET MY COLLECTION FROM DISCOGS
+//GET MY COLLECTION FROM DISCOGS --> TESTTESTTEST
 export default class Collection extends Component {
   constructor(props) {
     super(props);
@@ -79,7 +80,8 @@ export default class Collection extends Component {
   render() {
     let albumUri = encodeURI(this.state.album)
     return (
-      <div className="">
+      <div className="background">
+        <Navbar/>
         <div>
           <div className="">
             <input

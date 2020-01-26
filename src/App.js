@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css"
+//import "./Collection.css"
 import Home from "./pages/Home.jsx";
 import Collection from "./pages/Collection.jsx";
 import Signup from "./pages/Signup.jsx";
