@@ -13,7 +13,6 @@ export default class App extends Component {
     return (
       <div className="App">
 
-
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/collection" component={Collection} />
